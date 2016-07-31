@@ -1,0 +1,17 @@
+<header class="jumbotron">
+  <p class="lead"><br>
+    Here is all your musics <br>
+  </p>
+</header>
+
+<ul class="albums">
+  <li
+    ng-repeat="item in data track by $index"
+    title="{{item.artist.name}} - {{item.title}}"
+    data-file="{{item.file}}"
+  >{{item.artist.name}} - {{item.title}}<span ng-click="addTrackToPlayList(item)"> add</span> <span ng-click="playInstant(item)">play</span></li>
+</ul>
+
+<footer class="footer">
+  <p>&hearts; from your super-bud <a href="https://github.com/konsumer">konsumer</a></p>
+</footer>

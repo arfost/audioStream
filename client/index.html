@@ -1,0 +1,40 @@
+<html><head></head><body>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en" ng-app="audioStreamR">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="ressource/css/style.css">
+        <script type="text/javascript" src="ressource/scripts/vendor/angular.js"> </script>
+        <script type="text/javascript" src="ressource/scripts/vendor/angular-animate.js"> </script>
+        <script type="text/javascript" src="ressource/scripts/vendor/angular-route.js"> </script>
+        <script type="text/javascript" src="ressource/scripts/audioStreamScript.js"> </script>
+        <script type="text/javascript" src="ressource/scripts/audioStreamRoute.js"> </script>
+        <script type="text/javascript" src="ressource/scripts/audioStreamFactories.js"> </script>
+        <script type="text/javascript" src="ressource/scripts/audioStreamDirectives.js"> </script>
+        <script type="text/javascript" src="ressource/scripts/audioStreamControleur.js"> </script>
+        <link href="ressource\css\style.css" rel="stylesheet" />
+        <!--<link href="ressource\css\bootstrap.css.map" rel="stylesheet" />-->
+
+        <title>AudioStream</title>
+    </head>
+    <body>
+      <div class="menu">
+        menu :
+        <ul>
+          <li>
+            <a href="">trackList</a>
+          </li>
+          <li>
+            <a href="">manage catalog</a>
+          </li>
+          <li>
+            <a href="">manage users</a>
+          </li>
+      </div>
+      <div ng-view></div>
+      <audio-player></audio-player>
+    </body>
+</html>

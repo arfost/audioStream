@@ -1,0 +1,55 @@
+{
+    "createdOn": 1469784409227,
+    "name": "cat2",
+    "owner": "arfost",
+    "lastScan": 1469784409227,
+    "content": {
+        "cat2:0": {
+            "identifiant": "cat2:0",
+            "title": " pouet.mp3",
+            "artist": "/adele ",
+            "image": "",
+            "album": "inconnu",
+            "file": "/adele - pouet.mp3"
+        },
+        "cat2:1": {
+            "identifiant": "cat2:1",
+            "title": "bst.mp3",
+            "artist": "/bst.mp3",
+            "image": "",
+            "album": "inconnu",
+            "file": "/bst.mp3"
+        },
+        "cat2:2": {
+            "identifiant": "cat2:2",
+            "title": " tuttut ",
+            "artist": "/prof1/jungle ",
+            "image": "",
+            "album": "inconnu",
+            "file": "/prof1/jungle - tuttut - pouet.mp3"
+        },
+        "cat2:3": {
+            "identifiant": "cat2:3",
+            "title": "omega.mp3",
+            "artist": "/prof1/prof2/omega.mp3",
+            "image": "",
+            "album": "inconnu",
+            "file": "/prof1/prof2/omega.mp3"
+        },
+        "cat2:4": {
+            "identifiant": "cat2:4",
+            "title": " tut.mp3",
+            "artist": "/robot ",
+            "image": "",
+            "album": "inconnu",
+            "file": "/robot - tut.mp3"
+        }
+    },
+    "separator": "-",
+    "metaOrder": [
+        "artist",
+        "title"
+    ],
+    "base": "C:/Users/cchevalier/Desktop/pouet",
+    "crawlerType": "basic:test"
+}

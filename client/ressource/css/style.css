@@ -1,0 +1,50 @@
+.lecteur {
+  position:fixed;
+  width:100%;
+  height:150px;
+  background-color:white;
+  padding:5px;
+  bottom:0px;
+}
+
+.lecteur  > div:first-of-type {
+  display:inline-flex;
+}
+
+.commands{
+  width:250;
+}
+
+
+audio-player .paused .play-text,
+audio-player .pause-text {
+    display:inline-block;
+}
+audio-player .play-text,
+audio-player .paused .pause-text {
+    display:none;
+}
+audio-player * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.albums {
+    margin:0;
+    padding:0;
+}
+
+.playList{
+  /*background-color: red;*/
+  padding: 5px;
+  overflow: scroll;
+
+}
+
+.playing{
+  font-weight: bold;
+}
