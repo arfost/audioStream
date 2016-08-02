@@ -8,7 +8,7 @@ const PARAMS = {"saveDirectory":"c:/music"}
 
 
 
-MusicManager.createNewCatalog("cat2", "arfost", "C:/Users/cchevalier/Desktop/pouet", "-", ["artist","title"] );
+MusicManager.createNewCatalog("cat2", "arfost", "C:/Users/cchevalier/Desktop/pouet", {"separator":"-", "metaOrder":["artist","title"]} );
 
 //fileListFactory.getAllCatalogForUser("user");
 //console.log(fileListFactory.getAllMusicForUser("user"));

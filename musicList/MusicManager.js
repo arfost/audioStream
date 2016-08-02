@@ -35,17 +35,19 @@ var getTrackLocationByIdentifier = function(id){
   return location;
 }
 
-var createNewCatalog = function(name, user, folder, separator, metaOrder){
+var createNewCatalog = function(name, user, folder, metaParams){
   var catalogData = {
-    "separator":separator,
-    "metaOrder":metaOrder,
+    "metaParams":metaParams,
     "createdOn":Date.now(),
     "name":name,
     "owner":user,
     "lastScan":Date.now(),
     "content":[],
     "base":folder,
-    "crawlerType":'basic:test'
+    "scannerType":{
+      "crawler":'basic:test',
+      "metaCreator":'basic:test'
+    }
   }
   var catalog = new Catalog(catalogData);
   catalog.addTracks();
@@ -66,28 +68,6 @@ var getAllMusicForUser = function(user){
   }
   return allMusic;
 }
-
-
-function getFilesRecursiveSync(dir, fileList, scanChildrenDir, addDir, optionalFilterFunction) {
-    if (!fileList) {
-        console.log("Variable 'fileList' is undefined or NULL.");
-        return;
-    }
-    var files = fs.readdirSync(dir);
-    for (var i in files) {
-        if (!files.hasOwnProperty(i)) continue;
-        var name =  addDir ? dir +'/'+ files[i] : files[i];
-        //console.log(name);
-        if (scanChildrenDir && fs.statSync(addDir ? name : dir +'/'+ name).isDirectory()) {
-            getFilesRecursiveSync(addDir ? name : dir +'/'+ name, fileList, scanChildrenDir, false, optionalFilterFunction);
-        } else {
-            if (optionalFilterFunction && optionalFilterFunction(name) !== true)
-                continue;
-            fileList.push(name);
-        }
-    }
-}
-
 
 
 module.exports.getAllCatalogForUser = getAllCatalogForUser;

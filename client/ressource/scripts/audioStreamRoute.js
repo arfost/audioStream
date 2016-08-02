@@ -3,7 +3,7 @@ var GCapp = angular.module('audioStreamR', ['ngRoute','audioStream']);
 GCapp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/lecteur', {
+      when('/trackList', {
         templateUrl: 'ressource/content/trackList.html',
         controller: 'MainCtrl'
       }).

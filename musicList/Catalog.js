@@ -10,11 +10,13 @@ class Catalog{
     this.name=data.name;
     this.owner=data.owner;
     this.lastScan=data.lastScan;
-    this.content={};
-    this.separator = data.separator;
-    this.metaOrder = data.metaOrder;
+
+    this.scannerType = data.scannerType;
     this.base = data.base;
-    this.crawlerType = data.crawlerType;
+
+    this.metaParams = data.metaParams;
+
+    this.content={};
     for(var track in data.content){
       this.content[track] = data.content[track];
     }
@@ -33,26 +35,24 @@ class Catalog{
   }
 
   addTracks(){
-    var crawler = new Crawler(this.crawlerType);
+    var crawler = new Crawler(this.scannerType);
     //console.log("filename recu : "+fileName);
     var trackList = crawler.beginCrawl(this.base);
     for(track of trackList){
-      var metaArray = track.split(this.separator);
-      var artist = this.metaOrder.indexOf("artist") != -1 ? metaArray[this.metaOrder.indexOf("artist")] : "inconnu";
-      var album = this.metaOrder.indexOf("album") != -1 ? metaArray[this.metaOrder.indexOf("album")] : "inconnu";
-      var title = (this.metaOrder.indexOf("title") != -1 && metaArray[this.metaOrder.indexOf("title")] !== undefined )? metaArray[this.metaOrder.indexOf("title")] : track.split('/')[track.split('/').length-1];
-      console.log(title);
+
+      var trackMeta = crawler.getMetaForTrack(track, this.metaParams);
+
       var track = {
           "identifiant":this.name+":"+Object.keys(this.content).length,
-          "title": title,
-          "artist": artist,
-          "image": "",
-          "album": album,
+          "title": trackMeta.title,
+          "artist": trackMeta.artist,
+          "image": trackMeta.image,
+          "album": trackMeta.album,
           "file": track
       }
       this.content[track.identifiant] = track;
     }
-
+    this.lastScan = Date.now();
   }
 
   save(callback){

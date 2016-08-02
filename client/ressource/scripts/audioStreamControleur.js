@@ -1,6 +1,7 @@
 audioStream.controller('MainCtrl', function ($scope, $http, $rootScope) {
         $scope.pageSize = 5;
         $scope.data=[];
+        $scope.filter={};
 
         $scope.addTrackToPlayList = function(track){
           console.log("send this for add: ",track );

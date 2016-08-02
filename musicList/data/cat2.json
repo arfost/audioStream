@@ -1,8 +1,20 @@
 {
-    "createdOn": 1469784409227,
+    "createdOn": 1470129553974,
     "name": "cat2",
     "owner": "arfost",
-    "lastScan": 1469784409227,
+    "lastScan": 1470129554019,
+    "scannerType": {
+        "crawler": "basic:test",
+        "metaCreator": "basic:test"
+    },
+    "base": "C:/Users/cchevalier/Desktop/pouet",
+    "metaParams": {
+        "separator": "-",
+        "metaOrder": [
+            "artist",
+            "title"
+        ]
+    },
     "content": {
         "cat2:0": {
             "identifiant": "cat2:0",
@@ -44,12 +56,5 @@
             "album": "inconnu",
             "file": "/robot - tut.mp3"
         }
-    },
-    "separator": "-",
-    "metaOrder": [
-        "artist",
-        "title"
-    ],
-    "base": "C:/Users/cchevalier/Desktop/pouet",
-    "crawlerType": "basic:test"
+    }
 }
