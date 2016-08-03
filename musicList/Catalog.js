@@ -12,7 +12,7 @@ class Catalog{
     this.lastScan=data.lastScan;
 
     this.scannerType = data.scannerType;
-    this.base = data.base;
+    this.source = data.source;
 
     this.metaParams = data.metaParams;
 
@@ -34,7 +34,7 @@ class Catalog{
     return trackList;
   }
 
-  addTracks(){
+  scanSource(){
     var crawler = new Crawler(this.scannerType);
     //console.log("filename recu : "+fileName);
     var trackList = crawler.beginCrawl(this.base);
@@ -55,16 +55,14 @@ class Catalog{
     this.lastScan = Date.now();
   }
 
-  save(callback){
-    var outputFilename = './musicList/data/'+this.name+'.json';
-    fs.writeFile(outputFilename, JSON.stringify(this, null, 4), function(err) {
-        if(err) {
-          console.log(err);
-        } else {
-          console.log("JSON saved to " + outputFilename);
-          callback();
-        }
-    });
+  save(){
+    try{
+      var outputFilename = './musicList/data/'+this.name+'.json';
+      fs.writeFileSync(outputFilename, JSON.stringify(this, null, 4));
+      return this;
+    }catch(err){
+      return err;
+    }
   }
 
 }

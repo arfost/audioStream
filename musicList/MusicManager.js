@@ -36,6 +36,7 @@ var getTrackLocationByIdentifier = function(id){
 }
 
 var createNewCatalog = function(name, user, folder, metaParams){
+  var success = false;
   var catalogData = {
     "metaParams":metaParams,
     "createdOn":Date.now(),
@@ -43,7 +44,7 @@ var createNewCatalog = function(name, user, folder, metaParams){
     "owner":user,
     "lastScan":Date.now(),
     "content":[],
-    "base":folder,
+    "source":folder,
     "scannerType":{
       "crawler":'basic:test',
       "metaCreator":'basic:test'
@@ -52,9 +53,9 @@ var createNewCatalog = function(name, user, folder, metaParams){
   var catalog = new Catalog(catalogData);
   catalog.addTracks();
 
-  catalog.save(function(){
-    loadAllCatalog();
-  });
+  success = catalog.save();
+
+  return success;
 
 }
 

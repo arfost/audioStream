@@ -3,18 +3,8 @@ var express = require('express'), ms = require('mediaserver');
 var app = express();
 var MusicManager = require('./musicList/MusicManager.js');
 
-const PARAMS = {"saveDirectory":"c:/music"}
-//var fileListFactory = require('./musicList/CatalogFactory.js');
+//
 
-
-
-MusicManager.createNewCatalog("cat2", "arfost", "C:/Users/cchevalier/Desktop/pouet", {"separator":"-", "metaOrder":["artist","title"]} );
-
-//fileListFactory.getAllCatalogForUser("user");
-//console.log(fileListFactory.getAllMusicForUser("user"));
-//app.set("view options", {layout: false});
-
-//app.use('/serveur',express.static(__dirname + '/serveur'));
 app.use('/ressource',express.static(__dirname + '/client/ressource'));
 
 
@@ -22,32 +12,41 @@ app.get('/site', function(req, res) {
     res.sendFile(__dirname + '/client/index.html');
 });
 
-app.get('/music/:id', function(req, res){
-  console.log("call de la musique en particulier : ",MusicManager.getTrackLocationByIdentifier(req.params.id));
+//stream one track from a catalog
+app.get('/musicList/play/:id', function(req, res){
   if(ms.pipe(req, res, MusicManager.getTrackLocationByIdentifier(req.params.id))){
-    console.log("Envoi ok");
+    console.log("file found and ready to stream");
   }else{
-    console.log("Envoie raté");
+    console.log("fail to stream file : "+req.params.id);
   }
-
 });
 
-app.get('/list/musics', function(req, res){
+//return all tracks from all catalogs as a big list
+app.get('/musicList/musics', function(req, res){
   var playList = MusicManager.getAllMusicForUser("user");
-  //console.log("call de la liste de musique",playList);
   res.status(200).json(playList);
 });
 
-app.get('/file/:id', function(req, res){
-  var playList = MusicManager.getTrackByIdentifier(req.params.id);
+//return a single track with all metadata
+app.get('/musicList/track/:id', function(req, res){
+  var track = MusicManager.getTrackByIdentifier(req.params.id);
   //console.log("call de la liste de musique",playList);
-  res.status(200).json(playList);
+  res.status(200).json(track);
 });
 
-app.get('/list/catalog', function(req, res){
+
+//return a catalog json object
+app.get('/musicList/catalogs', function(req, res){
   var playList = MusicManager.getAllCatalogForUser("user");
   //console.log("call de la liste de musique",playList);
   res.status(200).json(playList);
+});
+
+//create a new catalog
+app.post('/musicList/newCatalog', function(req, res){
+  var catParams = req.body;
+  var result = MusicManager.createNewCatalog(catParams.name, catParams.user, catParams.location, catParams.metaCreatorParams );
+  res.status(200).json(result);
 });
 
 

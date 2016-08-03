@@ -1,0 +1,7 @@
+<div class="catList">
+  <div ng-repeat="catalog in catalogs"><span>{{catalog.name}} -- Created by {{catalog.owner}} on {{catalog.createdOn}} and last updated the {{catalog.lastScan}} </span>
+    <label>see tracks: <input type="checkbox" ng-model="see"></label>
+    <track-list list="catalog.arrayContent" caption="'catalog content'" ng-show="see" />
+  </div>
+</div>
+<div class="catEdit"></div>
