@@ -1,19 +1,19 @@
 {
-  "name": "simple_music_streamer",
-  "version": "0.0.1",
-  "description": "une simple solution de streaming",
-  "main": "start.js",
-  "scripts": {
-    "test": "test.js"
-  },
-  "keywords": [
-    "music",
-    "stream"
-  ],
-  "author": "arfost",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.14.0",
-    "mediaserver": "^0.1.0"
-  }
+	"name": "simple_music_streamer",
+	"version": "0.0.1",
+	"description": "une simple solution de streaming",
+	"keywords": [
+		"music",
+		"stream"
+	],
+	"license": "MIT",
+	"author": "arfost",
+	"main": "start.js",
+	"scripts": {
+		"test": "test.js"
+	},
+	"dependencies": {
+		"express": "^4.14.0",
+		"mediaserver": "^0.1.0"
+	}
 }
