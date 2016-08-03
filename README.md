@@ -1,5 +1,5 @@
 # audioStream
-(or whatever is futur name will be)
+(or whatever his futur name will be)
 
 This is a node server to stream music. For now it comes with an angular client but it's mostly a placeholder to work on server functionality and it will be replaced.
 It aim to stay light weight and work on a raspberry pi or other low power computer with minimal configuration.
@@ -28,7 +28,7 @@ RoadMap/Planned Features
 
 4. Integration with other services via optional module system
 
-5. (Add a real database instead of using json files, if it fit in the light and simple goal)
+5. (Add a real database instead of using json files, if it fits in the light and simple goal)
 
 
 Actual task in progress :
@@ -45,7 +45,7 @@ Actual architectures
 __start.js__ is declaring route for server function, and serving the client.
 
 __musicList__ contains all the music functionality parts.  
- - __MusicManager__ is managing catalogs, load them, aggregate them to serv them as a complete music list, it also create them and can serve them as distinct object.
+ - __MusicManager__ is managing catalogs, load them, aggregate them to serv them as a complete music list, it also create them and can serve them as distinct objects.
  - __Catalog__ are objects that contains all catalogs info, and can give one or all the tracks in it, save themself on the disk and use a MusicScanner to find new tracks.
  - __MusicScanner__ use the module system, where it load a music discovery and a metadata extracting methods from is module directory depending on parameters given a instantiation.
 
