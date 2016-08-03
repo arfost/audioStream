@@ -2,6 +2,11 @@
 	"name": "simple_music_streamer",
 	"version": "0.0.1",
 	"description": "une simple solution de streaming",
+  "repository" :
+  {
+    "type" : "git",
+    "url" : "https://github.com/npm/npm.git"
+  },
 	"keywords": [
 		"music",
 		"stream"
