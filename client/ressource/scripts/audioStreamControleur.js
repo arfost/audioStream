@@ -15,6 +15,17 @@ audioStream.controller('manageCatalogCtrl', function($scope, $http, $rootScope){
         }
           $scope.catalogs = response;
       });
+
+      $scope.newCat = {
+        "source":"",
+        "user":"",
+        "name":"",
+        "metaCreatorParams":{
+          "metaOrder":[],
+          "separator":""
+        }
+      }
+
 });
 
 audioStream.controller('trackListCtrl', function ($scope, $rootScope) {

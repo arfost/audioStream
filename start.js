@@ -45,7 +45,7 @@ app.get('/musicList/catalogs', function(req, res){
 //create a new catalog
 app.post('/musicList/newCatalog', function(req, res){
   var catParams = req.body;
-  var result = MusicManager.createNewCatalog(catParams.name, catParams.user, catParams.location, catParams.metaCreatorParams );
+  var result = MusicManager.createNewCatalog(catParams.name, catParams.user, catParams.source, catParams.metaCreatorParams );
   res.status(200).json(result);
 });
 

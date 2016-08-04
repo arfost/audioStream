@@ -35,7 +35,7 @@ var getTrackLocationByIdentifier = function(id){
   return location;
 }
 
-var createNewCatalog = function(name, user, folder, metaParams){
+var createNewCatalog = function(name, user, source, metaParams){
   var success = false;
   var catalogData = {
     "metaParams":metaParams,
