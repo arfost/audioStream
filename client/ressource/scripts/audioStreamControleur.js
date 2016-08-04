@@ -6,24 +6,52 @@ audioStream.controller('allTracksPageCtrl', function($scope, $http, $rootScope){
 });
 
 audioStream.controller('manageCatalogCtrl', function($scope, $http, $rootScope){
-  $http.get('/musicList/catalogs')
-      .success(function(response){
+    $scope.loadCatalogs = function(){
+            $http.get('/musicList/catalogs')
+                .success(function(response){
 
-        for(var cat in response){
-          console.log(cat);
-          response[cat].arrayContent = Object.keys(response[cat].content).map(function (key) {return response[cat].content[key]});
-        }
-          $scope.catalogs = response;
-      });
+                    for(var cat in response){
+                        console.log(cat);
+                        response[cat].arrayContent = Object.keys(response[cat].content).map(function (key) {return response[cat].content[key]});
+                    }
+                    $scope.catalogs = response;
+                });    
+          }
+          $scope.loadCatalogs();
 
+    $scope.create = false;
       $scope.newCat = {
         "source":"",
         "user":"",
         "name":"",
         "metaCreatorParams":{
-          "metaOrder":[],
+          "metaOrder":["artist","title"],
           "separator":""
         }
+      }
+      
+      $scope.validate = function(){
+          var ok = true;
+          
+          if(ok){
+            $http.post('/musicList/newCatalog', $scope.newCat)
+                .success(function(response){
+
+                    $scope.loadCatalogs();
+                });  
+                $scope.create = false;
+                $scope.newCat = {
+                    "source":"",
+                    "user":"",
+                    "name":"",
+                    "metaCreatorParams":{
+                        "metaOrder":["artist","title"],
+                        "separator":""
+                    }
+                }
+          }else{
+              alert("check all the fields");
+          }
       }
 
 });

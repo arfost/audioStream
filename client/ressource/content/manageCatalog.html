@@ -1,7 +1,15 @@
 <div class="catList">
   <div ng-repeat="catalog in catalogs"><span>{{catalog.name}} -- Created by {{catalog.owner}} on {{catalog.createdOn}} and last updated the {{catalog.lastScan}} </span>
     <label>see tracks: <input type="checkbox" ng-model="see"></label>
-    <track-list list="catalog.arrayContent" caption="'catalog content'" ng-show="see" />
+    <track-list list="catalog.arrayContent" caption="'catalog content'" ng-show="see" >
   </div>
 </div>
-<div class="catEdit"></div>
+<label ng-hide="create">Create new <input type="button" ng-click="create = !create"></label>
+<div class="catCreate" ng-show="create">
+    <h4>Create a new catalog</h4>
+    <label >choose name : <input type="text" ng-model="newCat.name"></label>
+    <label >choose source : <input type="text" ng-model="newCat.source"></label>
+    <label >choose user : <input type="text" ng-model="newCat.user"></label>
+    <label >choose separator : <input type="text" ng-model="newCat.metaCreatorParams.separator"></label>
+    <label >Valider <input type="button" ng-click="validate"></label>
+</div>
