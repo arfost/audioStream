@@ -17,6 +17,7 @@ app.get('/site', function(req, res) {
 
 //stream one track from a catalog
 app.get('/musicList/play/:id', function(req, res){
+  console.log(MusicManager.getTrackLocationByIdentifier(req.params.id));
   if(ms.pipe(req, res, MusicManager.getTrackLocationByIdentifier(req.params.id))){
     console.log("file found and ready to stream");
   }else{

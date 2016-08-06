@@ -37,7 +37,7 @@ class Catalog{
   scanSource(){
     var crawler = new Crawler(this.scannerType);
     //console.log("filename recu : "+fileName);
-    var trackList = crawler.beginCrawl(this.base);
+    var trackList = crawler.beginCrawl(this.source);
     for(track of trackList){
 
       var trackMeta = crawler.getMetaForTrack(track, this.metaParams);

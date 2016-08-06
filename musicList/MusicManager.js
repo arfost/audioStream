@@ -31,7 +31,7 @@ var getTrackByIdentifier = function(id){
 
 var getTrackLocationByIdentifier = function(id){
   var processedId = id.split(':');
-  var location = catalogs[processedId[0]].base + catalogs[processedId[0]].getTrackByIdentifier(id).file;
+  var location = catalogs[processedId[0]].source + catalogs[processedId[0]].getTrackByIdentifier(id).file;
   return location;
 }
 
