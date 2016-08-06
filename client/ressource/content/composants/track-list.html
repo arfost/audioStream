@@ -25,8 +25,8 @@
  <tbody>
   <tr ng-repeat="item in trackList  | filter:search track by $index">
     <th><span ng-click="addTrackToPlayList(item)"> add</span> <span ng-click="playInstant(item)">play</span></th>
-    <th>{{item.album}}</th>
     <th>{{item.artist}}</th>
+    <th>{{item.album}}</th>
     <th>{{item.title}}</th>
   </tr>
  </tbody>

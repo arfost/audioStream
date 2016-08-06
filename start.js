@@ -1,9 +1,12 @@
 var express = require('express'), ms = require('mediaserver');
+var bodyParser     =        require("body-parser");
 
 var app = express();
 var MusicManager = require('./musicList/MusicManager.js');
 
 //
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use('/ressource',express.static(__dirname + '/client/ressource'));
 

@@ -1,23 +1,24 @@
 {
-	"name": "simple_music_streamer",
-	"version": "0.0.1",
-	"description": "une simple solution de streaming",
-	"keywords": [
-		"music",
-		"stream"
-	],
-	"license": "MIT",
-	"author": "arfost",
-	"main": "start.js",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/arfost/audioStream.git"
-	},
-	"scripts": {
-		"test": "test.js"
-	},
-	"dependencies": {
-		"express": "^4.14.0",
-		"mediaserver": "^0.1.0"
-	}
+  "name": "simple_music_streamer",
+  "version": "0.0.1",
+  "description": "une simple solution de streaming",
+  "keywords": [
+    "music",
+    "stream"
+  ],
+  "license": "MIT",
+  "author": "arfost",
+  "main": "start.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arfost/audioStream.git"
+  },
+  "scripts": {
+    "test": "test.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mediaserver": "^0.1.0"
+  }
 }

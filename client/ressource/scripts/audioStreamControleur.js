@@ -25,6 +25,7 @@ audioStream.controller('manageCatalogCtrl', function($scope, $http, $rootScope){
         "user":"",
         "name":"",
         "metaCreatorParams":{
+            "ignoreFolder":true,
           "metaOrder":["artist","title"],
           "separator":""
         }

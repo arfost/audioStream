@@ -44,17 +44,17 @@ var createNewCatalog = function(name, user, source, metaParams){
     "owner":user,
     "lastScan":Date.now(),
     "content":[],
-    "source":folder,
+    "source":source,
     "scannerType":{
       "crawler":'basic:test',
       "metaCreator":'basic:test'
     }
   }
   var catalog = new Catalog(catalogData);
-  catalog.addTracks();
+  catalog.scanSource();
 
   success = catalog.save();
-
+    loadAllCatalog();
   return success;
 
 }
