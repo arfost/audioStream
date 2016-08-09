@@ -1,40 +1,100 @@
-<html><head></head><body>
-
-</body>
-</html>
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <html lang="en" ng-app="audioStreamR">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="ressource/css/style.css">
-        <script type="text/javascript" src="ressource/scripts/vendor/angular.js"> </script>
-        <script type="text/javascript" src="ressource/scripts/vendor/angular-animate.js"> </script>
-        <script type="text/javascript" src="ressource/scripts/vendor/angular-route.js"> </script>
-        <script type="text/javascript" src="ressource/scripts/audioStreamScript.js"> </script>
-        <script type="text/javascript" src="ressource/scripts/audioStreamRoute.js"> </script>
-        <script type="text/javascript" src="ressource/scripts/audioStreamFactories.js"> </script>
-        <script type="text/javascript" src="ressource/scripts/audioStreamDirectives.js"> </script>
-        <script type="text/javascript" src="ressource/scripts/audioStreamControleur.js"> </script>
-        <link href="ressource\css\style.css" rel="stylesheet" />
-        <!--<link href="ressource\css\bootstrap.css.map" rel="stylesheet" />-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Audio Stream</title>
+<link href="ressource/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="ressource/scripts/jquery.parallax-1.1.3.js"></script>
+<script type="text/javascript" src="ressource/scripts/jquery.localscroll-1.2.7-min.js"></script>
+<script type="text/javascript" src="ressource/scripts/jquery.scrollTo-1.4.2-min.js"></script>
+<script type="text/javascript" src="ressource/scripts/vendor/angular.js"> </script>
+<script type="text/javascript" src="ressource/scripts/vendor/angular-animate.js"> </script>
+<script type="text/javascript" src="ressource/scripts/vendor/angular-route.js"> </script>
+<script type="text/javascript" src="ressource/scripts/audioStreamScript.js"> </script>
+<script type="text/javascript" src="ressource/scripts/audioStreamRoute.js"> </script>
+<script type="text/javascript" src="ressource/scripts/audioStreamFactories.js"> </script>
+<script type="text/javascript" src="ressource/scripts/audioStreamDirectives.js"> </script>
+<script type="text/javascript" src="ressource/scripts/audioStreamControleur.js"> </script>
 
-        <title>AudioStream</title>
-    </head>
-    <body>
-      <div class="menu">
-        menu :
-        <ul>
-          <li>
-            <a href="#/trackList">trackList</a>
-          </li>
-          <li>
-            <a href="#/manageCatalog">manage catalog</a>
-          </li>
-          <li>
-            <a href="">manage users</a>
-          </li>
-      </div>
-      <div ng-view></div>
-      <audio-player></audio-player>
-    </body>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#nav').localScroll(800);
+	
+	//.parallax(xPosition, speedFactor, outerHeight) options:
+	//xPosition - Horizontal position of the element
+	//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
+	//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
+	$('#intro').parallax("50%", 0.1);
+	$('#second').parallax("50%", 0.1);
+	$('.bg').parallax("25%", 0.4);
+	$('#third').parallax("50%", 0.3);
+
+})
+</script>
+</head>
+
+<body>
+
+	<ul id="naviglateral">
+		<li><a href="#intro" title="Next Section"><img src="ressource/pics/dot.png" alt="Link" /></a></li>
+	    <li><a href="#second" title="Next Section"><img src="ressource/pics/dot.png" alt="Link" /></a></li>
+	    <li><a href="#third" title="Next Section"><img src="ressource/pics/dot.png" alt="Link" /></a></li>
+	    <li><a href="#fifth" title="Next Section"><img src="ressource/pics/dot.png" alt="Link" /></a></li>
+	</ul>
+	<div id="cadreplay"><audio-player></audio-player></div>
+	<div id="intro">
+	<nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px;">
+       <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
+	  <li><a href="#/trackList">trackList</a></li>
+	  <li><a href="#/manageCatalog">manage catalog</a></li>
+	  <li><a href="">manage users</a></li>
+      <li><a href="#/about">About us</a></li>
+      <li><a href="#/contact">Contact us</a></li>
+    </ul>
+</nav>
+		<div class="story">
+	    	<div class="float-left">
+			<h2>Audio Stream</h2>
+	        <p>Stream your own music.</p>
+			
+			<div id ="content" ng-view></div>
+	        </div>
+			
+
+	    </div> <!--.story-->
+	</div> <!--#intro-->
+	
+	<div id="second">
+		<div class="story"><div class="bg"></div>
+	    	<div class="float-right">
+	            <h2>Test</h2>
+
+	        </div>
+	    </div> <!--.story-->
+	    
+	</div> <!--#second-->
+	
+	<div id="third">
+		<div class="story">
+	    	<div class="float-left">
+	        	<h2>About</h2>
+	            <p></p>
+	        </div>
+	    </div> <!--.story-->
+	</div> <!--#third-->
+	
+	<div id="fifth">
+		<div class="story">
+		    
+	        
+	        <h2>Contact</h2>
+
+	    </div> <!--.story-->
+	</div> <!--#fifth-->
+</body>
 </html>
