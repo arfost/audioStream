@@ -24,7 +24,14 @@
  </tfoot>
  <tbody>
   <tr ng-repeat="item in trackList  | filter:search track by $index">
-    <th><span ng-click="addTrackToPlayList(item)"> add</span> <span ng-click="playInstant(item)">play</span></th>
+    <th>
+        <button class="btn btn-default playpause" ng-click="playInstant(item)" ng-class="{paused:audio.paused}">
+            <span class="play-text"><i class="glyphicon glyphicon-play"></i> Play</span>
+        </button>
+        <button class="btn btn-default playpause" ng-click="addTrackToPlayList(item)" ng-class="{paused:audio.paused}">
+            <span class="play-text"><i class="glyphicon glyphicon-play"></i> Queue</span>
+        </button>
+    </th>
     <th>{{item.artist}}</th>
     <th>{{item.album}}</th>
     <th>{{item.title}}</th>

@@ -28,7 +28,9 @@
        ng-model="repeat"></label>
        <label>repeat one: <input type="checkbox"
         ng-model="repeatTrack"></label>
-      <div ng-repeat="item in playList track by $index" ng-click="setTrack($index)" ng-class="{playing : $index == currentNum}">{{item.title}} <span ng-click="removeTrack($index)">suppr</span></div>
+      <div ng-repeat="item in playList track by $index" ng-click="setTrack($index)" ng-class="{playing : $index == currentNum}">
+          {{item.title}} <button class="btn btn-default next" ng-click="removeTrack($index)">suppr <i class="glyphicon glyphicon-step-forward"></i></button>
+      </div>
     </div>
   </div>
   <div ng-show="playList.length == 0">

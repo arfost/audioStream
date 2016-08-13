@@ -9,7 +9,6 @@ audioStream.controller('manageCatalogCtrl', function($scope, $http, $rootScope){
     $scope.loadCatalogs = function(){
             $http.get('/musicList/catalogs')
                 .success(function(response){
-
                     for(var cat in response){
                         console.log(cat);
                         response[cat].arrayContent = Object.keys(response[cat].content).map(function (key) {return response[cat].content[key]});
@@ -92,7 +91,7 @@ audioStream.controller('lecteurCtrl', function ($scope, $rootScope, $element) {
         if($scope.repeat){
           trackNumber = 0;
         }else{
-          $scope.currentNum = 0
+          $scope.currentNum = null
           $scope.audio.pause();
           return;
         }
@@ -102,7 +101,7 @@ audioStream.controller('lecteurCtrl', function ($scope, $rootScope, $element) {
         if($scope.repeat){
           trackNumber = $scope.playList.length -1;
         }else{
-          $scope.currentNum = 0;
+          $scope.currentNum = null;
           $scope.audio.pause();
           return;
         }
@@ -123,11 +122,11 @@ audioStream.controller('lecteurCtrl', function ($scope, $rootScope, $element) {
       $scope.setTrack($scope.currentNum -1);
     };
     $scope.removeTrack = function(index){
+      $scope.playList.splice(index, index);
       if(index == $scope.currentNum){
         repeatTrack == false;
         $scope.next();
       }
-      $scope.playList.splice(index, index+1);
     };
 
     // tell audio element to play/pause, you can also use $scope.audio.play() or $scope.audio.pause();
